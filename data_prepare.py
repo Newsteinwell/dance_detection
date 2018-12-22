@@ -60,6 +60,7 @@ class PrepareData():
             for j, pic_path in enumerate(os.listdir(file_path)):
                 image = Image.open(file_path + pic_path)
                 resize_image = np.array(image.resize((270, 240)))
+                normalized_image = self.normalize_pic(resize_image)
                 sit_pic.append(normalized_image)
         dance_pic = np.array(dance_pic).astype(np.float32)
         sit_pic = np.array(sit_pic).astype(np.float32)
